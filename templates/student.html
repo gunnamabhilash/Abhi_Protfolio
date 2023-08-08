@@ -1,0 +1,35 @@
+{% include 'base.html' %}
+<style >
+  hr{
+    
+    border: 0;
+            border-top: 2px solid #fff; /* White color for the line */
+            margin: 20px 0;
+  }
+
+  .button-container {
+    display: flex;
+   justify-content: start;
+      
+}
+.btn{
+  border-radius: 20px;
+}
+</style>
+{% block content %}
+
+    {% for i in student %}
+          Name :  {{ i.name }}<br>
+          Roll Number : {{i.rollno}}<br>
+          Department: {{i.department}}<br>
+          Age   : {{i.age}}<br>
+          
+          <div class="button-container">
+            <a href = "{{ i.id }}/studentdetail"><button type="button" class="btn btn-primary">Detail</button></a>
+            <a href = "{{ i.id }}/studentupdate"><button type="button" class="btn btn-success">Update</button></a>
+            <a href = "{{ i.id }}/studentdelete"><button type="button" class="btn btn-danger">Delete</button></a>
+          </div>
+
+          <hr>
+          {% endfor %}    
+{% endblock %}
